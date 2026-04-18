@@ -1,0 +1,49 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #f4f4f2;
+  --card-bg: #ffffff;
+  --border: #e8e8e3;
+  --text: #111111;
+  --text-mid: #3a3a3a;
+  --text-light: #6b6b6b;
+  --text-xlight: #a0a0a0;
+  --nav: #0e0e0e;
+  --accent: #2563eb;
+  --accent-light: #eff6ff;
+  --progress-bg: #e8e8e3;
+  --progress-fill: #111111;
+  --sidebar: 270px;
+  --green: #16a34a;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 15px;
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  height: 100%;
+  overflow-y: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+::selection {
+  background: #111;
+  color: #fff;
+}
