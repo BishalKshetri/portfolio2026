@@ -6,7 +6,7 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/budhakshetribishal/",
   github: "https://github.com/BishalKshetri",
   resume: "/bishal_cv.pdf",
-  avatar: "/bishal_pp.png",
+  avatar: "public/bishal_pp.png",
   bio: "Data Analyst based in Kathmandu, Nepal with hands-on experience turning raw data into actionable insights. Proficient in Python, SQL, Power BI, PostgreSQL, SSMS, and MS Excel — skilled at building interactive dashboards, cleaning large datasets, and delivering clear reports that support evidence-based decisions. Previously worked as a Support Engineer Intern, gaining foundational skills in networking, Linux systems, and IT infrastructure. Passionate about data-driven problem solving and committed to delivering meaningful results for organizations.",};
 
 export const experience = [
