@@ -21,8 +21,8 @@ export default function Projects() {
             transition={{ duration: 0.4, delay: i * 0.12 }}
             onMouseEnter={(e) => {
               (e.currentTarget as HTMLAnchorElement).style.borderColor = "#111";
-              (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-3px)";
-              (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 8px 24px rgba(0,0,0,0.09)";
+              (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-4px)";
+              (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 12px 30px rgba(0,0,0,0.1)";
             }}
             onMouseLeave={(e) => {
               (e.currentTarget as HTMLAnchorElement).style.borderColor = "var(--border)";
@@ -30,19 +30,23 @@ export default function Projects() {
               (e.currentTarget as HTMLAnchorElement).style.boxShadow = "none";
             }}
           >
-            {/* Header */}
-            <div style={styles.cardHeader}>
-              <div style={styles.folderWrap}>
-                <FolderIcon />
-              </div>
-              <div style={styles.arrowWrap}>
-                <ArrowIcon />
+            {/* Project Image */}
+            <div style={styles.imageWrap}>
+              <img
+                src={project.image}
+                alt={project.title}
+                style={styles.image}
+              />
+              <div style={styles.imageOverlay}>
+                <span style={styles.viewText}>View Project ↗</span>
               </div>
             </div>
 
             {/* Content */}
-            <h3 style={styles.cardTitle}>{project.title}</h3>
-            <p style={styles.cardDesc}>{project.description}</p>
+            <div style={styles.cardBody}>
+              <h3 style={styles.cardTitle}>{project.title}</h3>
+              <p style={styles.cardDesc}>{project.description}</p>
+            </div>
 
             {/* Footer */}
             <div style={styles.cardFooter}>
@@ -57,19 +61,6 @@ export default function Projects() {
   );
 }
 
-const FolderIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
-  </svg>
-);
-
-const ArrowIcon = () => (
-  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <line x1="7" y1="17" x2="17" y2="7" />
-    <polyline points="7 7 17 7 17 17" />
-  </svg>
-);
-
 const styles: Record<string, React.CSSProperties> = {
   grid: {
     display: "grid",
@@ -79,47 +70,69 @@ const styles: Record<string, React.CSSProperties> = {
   card: {
     display: "flex",
     flexDirection: "column",
-    padding: "1.4rem",
     background: "var(--bg)",
     border: "1px solid var(--border)",
     borderRadius: 12,
+    overflow: "hidden",
     transition: "border-color 0.25s, transform 0.25s, box-shadow 0.25s",
     cursor: "pointer",
     textDecoration: "none",
     color: "inherit",
   },
-  cardHeader: {
+  imageWrap: {
+    position: "relative",
+    width: "100%",
+    height: 160,
+    overflow: "hidden",
+    flexShrink: 0,
+  },
+  image: {
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+    display: "block",
+    transition: "transform 0.3s ease",
+  },
+  imageOverlay: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    background: "rgba(0,0,0,0.55)",
     display: "flex",
-    justifyContent: "space-between",
     alignItems: "center",
-    marginBottom: "1.1rem",
+    justifyContent: "center",
+    opacity: 0,
+    transition: "opacity 0.25s",
   },
-  folderWrap: {
-    color: "var(--text-xlight)",
+  viewText: {
+    color: "#fff",
+    fontSize: "0.82rem",
+    fontWeight: 600,
+    letterSpacing: "0.3px",
   },
-  arrowWrap: {
-    color: "var(--text-xlight)",
-    transition: "color 0.2s",
+  cardBody: {
+    flex: 1,
+    padding: "1rem 1.1rem 0.75rem 1.1rem",
   },
   cardTitle: {
     fontSize: "0.88rem",
     fontWeight: 700,
     color: "var(--text)",
-    marginBottom: "0.5rem",
+    marginBottom: "0.4rem",
     lineHeight: 1.4,
   },
   cardDesc: {
     fontSize: "0.77rem",
     color: "var(--text-light)",
     lineHeight: 1.75,
-    flex: 1,
-    marginBottom: "1.1rem",
   },
   cardFooter: {
     display: "flex",
     flexWrap: "wrap" as const,
     gap: "0.35rem",
-    marginTop: "auto",
+    padding: "0.75rem 1.1rem 1rem 1.1rem",
   },
   tag: {
     fontSize: "0.67rem",

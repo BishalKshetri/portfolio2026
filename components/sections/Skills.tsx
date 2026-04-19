@@ -89,12 +89,12 @@ const styles: Record<string, React.CSSProperties> = {
     background: "var(--border)",
     margin: "1.75rem 0",
   },
-  subTitle: {
-    fontSize: "0.68rem",
-    fontWeight: 600,
+subTitle: {
+    fontSize: "0.72rem",
+    fontWeight: 700,
     textTransform: "uppercase",
-    letterSpacing: "1.1px",
-    color: "var(--text-xlight)",
+    letterSpacing: "1px",
+    color: "var(--text-mid)",
     marginBottom: "1.25rem",
   },
 

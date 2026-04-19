@@ -9,6 +9,8 @@ import Skills from "@/components/sections/Skills";
 import Projects from "@/components/sections/Projects";
 import Education from "@/components/sections/Education";
 import Contact from "@/components/sections/Contact";
+import BackToTop from "@/components/BackToTop";
+import Certifications from "@/components/sections/Certifications";
 import { navLinks } from "@/data/resume";
 
 export default function Home() {
@@ -44,6 +46,7 @@ export default function Home() {
         <Experience />
         <Skills />
         <Projects />
+        <Certifications />
         <Education />
         <Contact />
         <motion.footer
@@ -55,17 +58,15 @@ export default function Home() {
           © 2026 Bishal Budhakshetri — Data Analyst
         </motion.footer>
       </main>
+      <BackToTop />
     </div>
   );
 }
 
 const styles: Record<string, React.CSSProperties> = {
-  layout: {
+layout: {
     display: "flex",
-    maxWidth: 1400,
-    margin: "0 auto",
     minHeight: "100vh",
-    boxShadow: "0 0 80px rgba(0,0,0,0.07)",
   },
   main: {
     flex: 1,

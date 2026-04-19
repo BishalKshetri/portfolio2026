@@ -38,16 +38,16 @@ const styles: Record<string, React.CSSProperties> = {
     borderRadius: 14,
     boxShadow: "0 2px 16px rgba(0,0,0,0.04)",
   },
-  titleRow: {
+titleRow: {
     marginBottom: "1.75rem",
     paddingBottom: "0.8rem",
-    borderBottom: "1px solid var(--border)",
+    borderBottom: "2px solid var(--border)",
   },
   title: {
-    fontSize: "0.78rem",
-    fontWeight: 600,
-    color: "var(--text-light)",
+    fontSize: "0.95rem",
+    fontWeight: 700,
+    color: "var(--text)",
     textTransform: "uppercase",
-    letterSpacing: "1.2px",
+    letterSpacing: "1px",
   },
 };

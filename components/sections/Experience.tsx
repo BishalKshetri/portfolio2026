@@ -65,8 +65,8 @@ const styles: Record<string, React.CSSProperties> = {
     width: 12,
   },
   dot: {
-    width: 10,
-    height: 10,
+    width: 11,
+    height: 11,
     borderRadius: "50%",
     background: "var(--text)",
     border: "2px solid var(--bg)",
@@ -77,8 +77,8 @@ const styles: Record<string, React.CSSProperties> = {
   },
   line: {
     flex: 1,
-    width: 1,
-    background: "var(--border)",
+    width: 2,
+    background: "#cccccc",
     marginTop: 4,
   },
   content: { flex: 1 },

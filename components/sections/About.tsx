@@ -1,16 +1,44 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import Section from "@/components/Section";
 import { profile } from "@/data/resume";
 
 export default function About() {
+  const typedRef = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    let typed: any;
+
+    const initTyped = async () => {
+      const Typed = (await import("typed.js")).default;
+      typed = new Typed(typedRef.current, {
+        strings: ["Data Analyst", "Power BI Developer", "SQL Expert", "Data Storyteller"],
+        typeSpeed: 60,
+        backSpeed: 40,
+        backDelay: 1500,
+        loop: true,
+        showCursor: true,
+        cursorChar: "|",
+      });
+    };
+
+    initTyped();
+
+    return () => {
+      if (typed) typed.destroy();
+    };
+  }, []);
+
   return (
     <Section id="about-section" title="">
       <div style={styles.topRow}>
         <div style={styles.left}>
           <h1 style={styles.heading}>{profile.name}</h1>
           <div style={styles.metaRow}>
-            <p style={styles.role}>{profile.title}</p>
-            <span style={styles.dot}>·</span>
-            <span style={styles.location}>Kathmandu, Nepal</span>
+            <span style={styles.typedWrap}>
+              <span ref={typedRef} />
+            </span>
           </div>
         </div>
         <div style={styles.statusBadge}>
@@ -18,8 +46,41 @@ export default function About() {
           Open to work
         </div>
       </div>
+
       <div style={styles.divider} />
+
       <p style={styles.bio}>{profile.bio}</p>
+
+      {/* Stats Row */}
+      <div style={styles.statsRow}>
+        <div style={styles.statItem}>
+          <div style={styles.statNumber}>2+</div>
+          <div style={styles.statLabel}>Years Experience</div>
+        </div>
+        <div style={styles.statDivider} />
+        <div style={styles.statItem}>
+          <div style={styles.statNumber}>3+</div>
+          <div style={styles.statLabel}>Projects Completed</div>
+        </div>
+        <div style={styles.statDivider} />
+        <div style={styles.statItem}>
+          <div style={styles.statNumber}>5+</div>
+          <div style={styles.statLabel}>Tools Mastered</div>
+        </div>
+        <div style={styles.statDivider} />
+        <div style={styles.statItem}>
+          <div style={styles.statNumber}>2</div>
+          <div style={styles.statLabel}>Organizations Served</div>
+        </div>
+      </div>
+
+      {/* Quick Skills */}
+      <div style={styles.quickSkills}>
+        {["Python", "SQL", "Power BI", "PostgreSQL", "MS Excel", "SSMS"].map((skill) => (
+          <span key={skill} style={styles.skillTag}>{skill}</span>
+        ))}
+      </div>
+
     </Section>
   );
 }
@@ -50,10 +111,10 @@ const styles: Record<string, React.CSSProperties> = {
     alignItems: "center",
     gap: "0.5rem",
   },
-  role: {
-    fontSize: "0.85rem",
-    color: "var(--text-light)",
-    fontWeight: 500,
+  typedWrap: {
+    fontSize: "0.88rem",
+    color: "var(--accent)",
+    fontWeight: 600,
   },
   dot: {
     color: "var(--text-xlight)",
@@ -93,6 +154,53 @@ const styles: Record<string, React.CSSProperties> = {
     fontSize: "0.88rem",
     color: "var(--text-light)",
     lineHeight: 1.95,
-    maxWidth: 680,
+    marginBottom: "1.5rem",
+  },
+  statsRow: {
+    display: "flex",
+    alignItems: "center",
+    background: "var(--bg)",
+    border: "1px solid var(--border)",
+    borderRadius: 10,
+    padding: "1.1rem 1.5rem",
+    marginBottom: "1.25rem",
+  },
+  statItem: {
+    flex: 1,
+    textAlign: "center",
+  },
+  statNumber: {
+    fontSize: "1.5rem",
+    fontWeight: 700,
+    color: "var(--text)",
+    lineHeight: 1,
+    marginBottom: "0.3rem",
+  },
+  statLabel: {
+    fontSize: "0.7rem",
+    color: "var(--text-xlight)",
+    fontWeight: 500,
+    textTransform: "uppercase",
+    letterSpacing: "0.5px",
+  },
+  statDivider: {
+    width: 1,
+    height: 36,
+    background: "var(--border)",
+    flexShrink: 0,
+  },
+  quickSkills: {
+    display: "flex",
+    flexWrap: "wrap" as const,
+    gap: "0.4rem",
+  },
+  skillTag: {
+    fontSize: "0.75rem",
+    fontWeight: 500,
+    color: "var(--text-mid)",
+    background: "var(--bg)",
+    border: "1px solid var(--border)",
+    padding: "0.3rem 0.7rem",
+    borderRadius: 5,
   },
 };
