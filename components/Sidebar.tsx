@@ -5,9 +5,11 @@ import { profile, navLinks } from "@/data/resume";
 interface SidebarProps {
   activeSection: string;
   onNavClick: (id: string) => void;
+  isMobile?: boolean;
 }
 
-export default function Sidebar({ activeSection, onNavClick }: SidebarProps) {
+export default function Sidebar({ activeSection, onNavClick, isMobile = false }: SidebarProps) {
+  const styles = getStyles(isMobile);
   return (
     <aside style={styles.sidebar}>
 
@@ -125,6 +127,7 @@ export default function Sidebar({ activeSection, onNavClick }: SidebarProps) {
             label={link.label}
             active={activeSection === link.href}
             onClick={() => onNavClick(link.href)}
+            styles={styles}
           />
         ))}
       </nav>
@@ -135,12 +138,14 @@ export default function Sidebar({ activeSection, onNavClick }: SidebarProps) {
   );
 }
 
-function NavItem({ label, active, onClick }: {
-  label: string; active: boolean; onClick: () => void;
+function NavItem({ label, active, onClick, styles }: {
+  label: string; active: boolean; onClick: () => void; styles: Record<string, React.CSSProperties>;
 }) {
   return (
     <button
       onClick={onClick}
+      aria-label={`Navigate to ${label} section`}
+      aria-current={active ? "true" : undefined}
       style={{
         ...styles.navLink,
         ...(active ? styles.navLinkActive : {}),
@@ -154,7 +159,7 @@ function NavItem({ label, active, onClick }: {
       }}
       onMouseLeave={(e) => {
         if (!active) {
-          (e.currentTarget as HTMLButtonElement).style.color = "rgba(255,255,255,0.45)";
+          (e.currentTarget as HTMLButtonElement).style.color = "rgba(255,255,255,0.7)";
           (e.currentTarget as HTMLButtonElement).style.transform = "translateX(0)";
           (e.currentTarget as HTMLButtonElement).style.background = "none";
         }
@@ -193,11 +198,11 @@ const GithubIcon = () => (
   </svg>
 );
 
-const styles: Record<string, React.CSSProperties> = {
+const getStyles = (isMobile: boolean): Record<string, React.CSSProperties> => ({
   sidebar: {
     width: "var(--sidebar)",
-    height: "100vh",
-    position: "sticky",
+    height: isMobile ? "100%" : "100vh",
+    position: isMobile ? "relative" : "sticky",
     top: 0,
     background: "var(--nav)",
     color: "#fff",
@@ -207,6 +212,7 @@ const styles: Record<string, React.CSSProperties> = {
     padding: "1rem 1.5rem",
     overflowY: "auto",
     flexShrink: 0,
+    fontSize: "15px",
   },
   avatarWrap: {
     width: 95,
@@ -352,4 +358,4 @@ const styles: Record<string, React.CSSProperties> = {
     textAlign: "center",
     letterSpacing: "0.3px",
   },
-};
+});

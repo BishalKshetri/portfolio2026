@@ -6,7 +6,19 @@ export default function Contact() {
     <Section id="contact-section" title="Contact">
       <div style={styles.grid}>
 
-        <a href={`mailto:${profile.email}`} style={styles.card}>
+        <a href={`mailto:${profile.email}`} style={styles.card}
+          aria-label="Send email"
+          onMouseEnter={(e) => {
+            (e.currentTarget as HTMLAnchorElement).style.borderColor = "#111";
+            (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-2px)";
+            (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 6px 20px rgba(0,0,0,0.08)";
+          }}
+          onMouseLeave={(e) => {
+            (e.currentTarget as HTMLAnchorElement).style.borderColor = "var(--border)";
+            (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)";
+            (e.currentTarget as HTMLAnchorElement).style.boxShadow = "none";
+          }}
+        >
           <div style={styles.cardIcon}>
             <EmailIcon />
           </div>
@@ -16,7 +28,19 @@ export default function Contact() {
           </div>
         </a>
 
-        <a href={`tel:${profile.phone}`} style={styles.card}>
+        <a href={`tel:${profile.phone}`} style={styles.card}
+          aria-label="Call phone"
+          onMouseEnter={(e) => {
+            (e.currentTarget as HTMLAnchorElement).style.borderColor = "#111";
+            (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-2px)";
+            (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 6px 20px rgba(0,0,0,0.08)";
+          }}
+          onMouseLeave={(e) => {
+            (e.currentTarget as HTMLAnchorElement).style.borderColor = "var(--border)";
+            (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)";
+            (e.currentTarget as HTMLAnchorElement).style.boxShadow = "none";
+          }}
+        >
           <div style={styles.cardIcon}>
             <PhoneIcon />
           </div>
@@ -26,8 +50,19 @@ export default function Contact() {
           </div>
         </a>
 
-        <a href={profile.linkedin} target="_blank" rel="noreferrer" style={styles.card} aria-label="Visit LinkedIn profile">
-          <div style={styles.cardIcon}>
+        <a href={profile.linkedin} target="_blank" rel="noreferrer" style={styles.card}
+          aria-label="Visit LinkedIn profile"
+          onMouseEnter={(e) => {
+            (e.currentTarget as HTMLAnchorElement).style.borderColor = "#111";
+            (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-2px)";
+            (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 6px 20px rgba(0,0,0,0.08)";
+          }}
+          onMouseLeave={(e) => {
+            (e.currentTarget as HTMLAnchorElement).style.borderColor = "var(--border)";
+            (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)";
+            (e.currentTarget as HTMLAnchorElement).style.boxShadow = "none";
+          }}
+        >          <div style={styles.cardIcon}>
             <LinkedinIcon />
           </div>
           <div>
@@ -36,8 +71,19 @@ export default function Contact() {
           </div>
         </a>
 
-        <a href={profile.github} target="_blank" rel="noreferrer" style={styles.card}>
-          <div style={styles.cardIcon}>
+        <a href={profile.github} target="_blank" rel="noreferrer" style={styles.card}
+          aria-label="Visit GitHub profile"
+          onMouseEnter={(e) => {
+            (e.currentTarget as HTMLAnchorElement).style.borderColor = "#111";
+            (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-2px)";
+            (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 6px 20px rgba(0,0,0,0.08)";
+          }}
+          onMouseLeave={(e) => {
+            (e.currentTarget as HTMLAnchorElement).style.borderColor = "var(--border)";
+            (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)";
+            (e.currentTarget as HTMLAnchorElement).style.boxShadow = "none";
+          }}
+        >          <div style={styles.cardIcon}>
             <GithubIcon />
           </div>
           <div>
