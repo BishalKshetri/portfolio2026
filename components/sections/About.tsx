@@ -179,7 +179,7 @@ const styles: Record<string, React.CSSProperties> = {
   },
   statLabel: {
     fontSize: "0.7rem",
-    color: "var(--text-xlight)",
+    color: "var(--text-light)",
     fontWeight: 500,
     textTransform: "uppercase",
     letterSpacing: "0.5px",

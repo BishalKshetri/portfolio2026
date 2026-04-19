@@ -316,7 +316,7 @@ const styles: Record<string, React.CSSProperties> = {
     borderRadius: 6,
     cursor: "pointer",
     fontSize: "0.72rem",
-    color: "rgba(255,255,255,0.45)",
+    color: "rgba(255,255,255,0.7)",
     paddingTop: "0.5rem",
     paddingBottom: "0.5rem",
     paddingLeft: "0.6rem",

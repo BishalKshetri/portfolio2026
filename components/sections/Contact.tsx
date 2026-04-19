@@ -26,7 +26,7 @@ export default function Contact() {
           </div>
         </a>
 
-        <a href={profile.linkedin} target="_blank" rel="noreferrer" style={styles.card}>
+        <a href={profile.linkedin} target="_blank" rel="noreferrer" style={styles.card} aria-label="Visit LinkedIn profile">
           <div style={styles.cardIcon}>
             <LinkedinIcon />
           </div>

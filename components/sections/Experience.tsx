@@ -116,7 +116,7 @@ const styles: Record<string, React.CSSProperties> = {
   },
   location: {
     fontSize: "0.72rem",
-    color: "var(--text-xlight)",
+    color: "var(--text-light)",
     whiteSpace: "nowrap",
   },
   bullets: {

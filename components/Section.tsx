@@ -41,7 +41,7 @@ const styles: Record<string, React.CSSProperties> = {
 titleRow: {
     marginBottom: "1.75rem",
     paddingBottom: "0.8rem",
-    borderBottom: "2px solid var(--border)",
+    borderBottom: "2px solid var(--accent)",
   },
   title: {
     fontSize: "0.95rem",
