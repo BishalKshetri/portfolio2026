@@ -52,22 +52,22 @@ export default function About() {
       <p style={styles.bio}>{profile.bio}</p>
 
       {/* Stats Row */}
-      <div style={styles.statsRow}>
+      <div style={styles.statsRow} className="stats-row">
         <div style={styles.statItem}>
           <div style={styles.statNumber}>2+</div>
           <div style={styles.statLabel}>Years Experience</div>
         </div>
-        <div style={styles.statDivider} />
+        <div style={styles.statDivider} className="stat-divider" />
         <div style={styles.statItem}>
           <div style={styles.statNumber}>3+</div>
           <div style={styles.statLabel}>Projects Completed</div>
         </div>
-        <div style={styles.statDivider} />
+        <div style={styles.statDivider} className="stat-divider"/>
         <div style={styles.statItem}>
           <div style={styles.statNumber}>5+</div>
           <div style={styles.statLabel}>Tools Mastered</div>
         </div>
-        <div style={styles.statDivider} />
+        <div style={styles.statDivider} className="stat-divider" />
         <div style={styles.statItem}>
           <div style={styles.statNumber}>2</div>
           <div style={styles.statLabel}>Organizations Served</div>
@@ -157,18 +157,22 @@ const styles: Record<string, React.CSSProperties> = {
     lineHeight: 1.95,
     marginBottom: "1.5rem",
   },
-  statsRow: {
+statsRow: {
     display: "flex",
     alignItems: "center",
     background: "var(--bg)",
     border: "1px solid var(--border)",
     borderRadius: 10,
-    padding: "1.1rem 1.5rem",
+    padding: "1rem 0.5rem",
     marginBottom: "1.25rem",
+    overflowX: "auto",
+    flexWrap: "wrap" as const,
+    gap: "0.5rem",
   },
   statItem: {
     flex: 1,
     textAlign: "center",
+    minWidth: "80px"
   },
   statNumber: {
     fontSize: "1.5rem",

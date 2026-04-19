@@ -114,18 +114,20 @@ const styles: Record<string, React.CSSProperties> = {
     fontSize: "0.75rem",
     color: "var(--text-light)",
   },
-  right: {
+right: {
     display: "flex",
     flexDirection: "column",
     alignItems: "flex-end",
     gap: "0.25rem",
-    padding: "0 1.1rem",
+    padding: "0 0.75rem",
     flexShrink: 0,
+    minWidth: "70px",
   },
-  year: {
-    fontSize: "0.72rem",
+year: {
+    fontSize: "0.68rem",
     fontWeight: 600,
     color: "var(--text-xlight)",
+    whiteSpace: "nowrap" as const,
   },
   viewLink: {
     fontSize: "0.72rem",

@@ -27,19 +27,33 @@ export default function Home() {
 
   useEffect(() => {
     const sectionIds = navLinks.map((l) => l.href);
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActiveSection(entry.target.id);
-        });
-      },
-      { threshold: 0, rootMargin: "-50% 0px -50% 0px" }
-    );
-    sectionIds.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
-    return () => observer.disconnect();
+
+    const handleScroll = () => {
+      const scrollBottom = window.scrollY + window.innerHeight;
+      const docHeight = document.documentElement.scrollHeight;
+
+      // If scrolled to bottom, activate last section
+      if (scrollBottom >= docHeight - 10) {
+        setActiveSection(sectionIds[sectionIds.length - 1]);
+        return;
+      }
+
+      let current = "";
+      sectionIds.forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= window.innerHeight * 0.5) {
+            current = id;
+          }
+        }
+      });
+      if (current) setActiveSection(current);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToSection = (id: string) => {
@@ -77,7 +91,7 @@ export default function Home() {
         <Sidebar activeSection={activeSection} onNavClick={scrollToSection} isMobile={false} />
       )}
 
-      <main style={{ flex: 1, background: "var(--bg)", padding: isMobile ? "1rem" : "2.5rem 3rem", fontSize: "17px" }}>
+      <main style={{ flex: 1, background: "var(--bg)", padding: isMobile ? "1rem" : "2.5rem 3rem", fontSize: "17px", width: "100%", overflow: "hidden" }}>
         <About />
         <Experience />
         <Skills />
@@ -101,16 +115,16 @@ export default function Home() {
 
 const MenuIcon = () => (
   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <line x1="3" y1="6" x2="21" y2="6"/>
-    <line x1="3" y1="12" x2="21" y2="12"/>
-    <line x1="3" y1="18" x2="21" y2="18"/>
+    <line x1="3" y1="6" x2="21" y2="6" />
+    <line x1="3" y1="12" x2="21" y2="12" />
+    <line x1="3" y1="18" x2="21" y2="18" />
   </svg>
 );
 
 const CloseIcon = () => (
   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <line x1="18" y1="6" x2="6" y2="18"/>
-    <line x1="6" y1="6" x2="18" y2="18"/>
+    <line x1="18" y1="6" x2="6" y2="18" />
+    <line x1="6" y1="6" x2="18" y2="18" />
   </svg>
 );
 
@@ -149,6 +163,7 @@ const styles: Record<string, React.CSSProperties> = {
     zIndex: 99,
     overflowY: "auto",
     background: "#0e0e0e",
+    width: "65%",   // ← add this, drawer takes 75% width not full
   },
   footer: {
     textAlign: "center",

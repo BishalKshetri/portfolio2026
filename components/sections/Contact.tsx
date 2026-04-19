@@ -124,7 +124,7 @@ const GithubIcon = () => (
 const styles: Record<string, React.CSSProperties> = {
   grid: {
     display: "grid",
-    gridTemplateColumns: "1fr 1fr",
+    gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
     gap: "0.85rem",
   },
   card: {
