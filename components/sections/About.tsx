@@ -137,6 +137,7 @@ const styles: Record<string, React.CSSProperties> = {
     borderRadius: 20,
     whiteSpace: "nowrap" as const,
     flexShrink: 0,
+    alignSelf: "flex-start",
   },
   statusDot: {
     width: 6,

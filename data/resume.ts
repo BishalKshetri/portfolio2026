@@ -107,14 +107,14 @@ export const projects = [
     description: "Analyzed pizza sales data using advanced SQL queries to identify gaps and increase business growth.",
     tools: ["SQL"],
     github: "https://github.com/Bishal2056/pizza-sales---SQL/blob/main/Pizza%20Sales-SQL%20Project.pdf",
-    image: "/sql.jpeg",
+    image: "/sql.jpg",
   },
   {
     title: "Retail Store Sales Analysis",
     description: "Performed retail sales analysis using Excel by creating an interactive dashboard to visualize key sales metrics and identify trends.",
     tools: ["MS Excel"],
     github: "https://github.com/Bishal2056/Retail-Store-sales/blob/main/Retail%20store%20sales-%20Dashboard.png",
-    image: "/excel.jpeg",
+    image: "/excel.jpg",
   },
   {
     title: "Super Store Power BI Dashboard",

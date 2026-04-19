@@ -84,6 +84,7 @@ layout: {
     flex: 1,
     background: "var(--bg)",
     padding: "2.5rem 3rem",
+    fontSize: "19px",
   },
   footer: {
     textAlign: "center",

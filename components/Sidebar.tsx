@@ -27,10 +27,31 @@ export default function Sidebar({ activeSection, onNavClick }: SidebarProps) {
       <div style={styles.divider} />
 
       <div style={styles.cta}>
-        <a href={`mailto:${profile.email}`} style={styles.btnPrimary}>
+        <a href={`mailto:${profile.email}`} style={styles.btnPrimary}
+          onMouseEnter={(e) => {
+            (e.currentTarget as HTMLAnchorElement).style.background = "#afe39d";
+            (e.currentTarget as HTMLAnchorElement).style.color = "#05051a";
+            (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-2px)";
+          }}
+          onMouseLeave={(e) => {
+            (e.currentTarget as HTMLAnchorElement).style.background = "#92a585";
+            (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)";
+          }}
+        >
           Hire Me
         </a>
-        <a href={profile.resume} target="_blank" rel="noreferrer" style={styles.btnSecondary}>
+        <a href={profile.resume} target="_blank" rel="noreferrer" style={styles.btnSecondary}
+          onMouseEnter={(e) => {
+            (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(255,255,255,0.45)";
+            (e.currentTarget as HTMLAnchorElement).style.color = "#6e70ee";
+            (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-2px)";
+          }}
+          onMouseLeave={(e) => {
+            (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(255,255,255,0.12)";
+            (e.currentTarget as HTMLAnchorElement).style.color = "rgba(255,255,255,0.6)";
+            (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)";
+          }}
+        >
           Download CV
         </a>
       </div>
@@ -183,16 +204,16 @@ const styles: Record<string, React.CSSProperties> = {
     display: "flex",
     flexDirection: "column",
     gap: "0",
-    padding: "2rem 1.5rem",
+    padding: "1rem 1.5rem",
     overflowY: "auto",
     flexShrink: 0,
   },
   avatarWrap: {
-    width: 88,
-    height: 88,
+    width: 95,
+    height: 95,
     borderRadius: "50%",
     overflow: "hidden",
-    margin: "0 auto 1.25rem auto",
+    margin: "0 auto 0.5rem auto",
     flexShrink: 0,
     border: "2px solid rgba(255,255,255,0.1)",
   },
@@ -226,8 +247,8 @@ const styles: Record<string, React.CSSProperties> = {
   },
   divider: {
     height: 1,
-    background: "rgba(255,255,255,0.2.5)",
-    margin: "0.85rem 0",
+    background: "rgba(255,255,255,0.2)",
+    margin: "0.5rem 0",
     flexShrink: 0,
   },
   cta: {
@@ -239,13 +260,14 @@ const styles: Record<string, React.CSSProperties> = {
   btnPrimary: {
     display: "block",
     textAlign: "center",
-    background: "#ffffff",
+    background: "#b5c3a0",
     color: "#0e0e0e",
     padding: "0.55rem",
     borderRadius: 7,
     fontSize: "0.8rem",
     fontWeight: 600,
     letterSpacing: "0.2px",
+    transition: "background 0.2s, transform 0.2s",
   },
   btnSecondary: {
     display: "block",
@@ -257,11 +279,12 @@ const styles: Record<string, React.CSSProperties> = {
     fontSize: "0.8rem",
     fontWeight: 500,
     border: "1px solid rgba(255,255,255,0.12)",
+    transition: "border-color 0.2s, color 0.2s, transform 0.2s",
   },
   contacts: {
     display: "flex",
     flexDirection: "column",
-    gap: "0.05rem",
+    gap: "0.0rem",
   },
   contactLink: {
     display: "flex",
@@ -282,7 +305,7 @@ const styles: Record<string, React.CSSProperties> = {
     flexDirection: "column",
     gap: "0.1rem",
   },
-navLink: {
+  navLink: {
     display: "flex",
     alignItems: "center",
     gap: "0.6rem",
