@@ -137,7 +137,7 @@ export const certifications = [
     issuer: "HackerRank",
     year: "Jan 7, 2025",
     file: "/cert2.pdf",
-    color: "#00ea64",
+    color: "#e02020",
   },
   {
     title: "Data Analyst in Python",
