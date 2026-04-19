@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { profile, navLinks } from "@/data/resume";
 
 interface SidebarProps {
@@ -13,13 +12,10 @@ export default function Sidebar({ activeSection, onNavClick }: SidebarProps) {
     <aside style={styles.sidebar}>
 
       <div style={styles.avatarWrap}>
-        <Image
+        <img
           src={profile.avatar}
           alt={profile.name}
-          width={88}
-          height={88}
           style={styles.avatarImg}
-          priority
         />
       </div>
 
