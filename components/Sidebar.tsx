@@ -315,6 +315,7 @@ navLink: {
     background: "rgba(255,255,255,0.2)",
     flexShrink: 0,
     transition: "background 0.2s, box-shadow 0.2s",
+    display: "inline-block",
   },
   navDotActive: {
     background: "#ffffff",
