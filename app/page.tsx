@@ -62,7 +62,7 @@ export default function Home() {
 const styles: Record<string, React.CSSProperties> = {
   layout: {
     display: "flex",
-    maxWidth: 1180,
+    maxWidth: 1400,
     margin: "0 auto",
     minHeight: "100vh",
     boxShadow: "0 0 80px rgba(0,0,0,0.07)",
